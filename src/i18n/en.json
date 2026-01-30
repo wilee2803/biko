@@ -1,0 +1,73 @@
+{
+  "app": {
+    "title": "biko Training"
+  },
+  "nav": {
+    "training": "Training",
+    "history": "History",
+    "profile": "Profile"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "logout": "Logout",
+    "noAccount": "No account yet?",
+    "hasAccount": "Already have an account?",
+    "error": "Login failed. Please check your credentials."
+  },
+  "dog": {
+    "title": "Dog Profile",
+    "name": "Name",
+    "breed": "Breed",
+    "birthDate": "Date of Birth",
+    "save": "Save",
+    "saved": "Saved!",
+    "noDog": "No dog added",
+    "addDog": "Add Dog"
+  },
+  "equipment": {
+    "title": "Equipment",
+    "expanderSize": "Expander Size",
+    "cuffSize": "Cuff Size",
+    "sizes": {
+      "S": "S",
+      "M": "M",
+      "L": "L",
+      "XL": "XL"
+    }
+  },
+  "training": {
+    "title": "Training",
+    "start": "Start Training",
+    "stop": "Stop Training",
+    "bandStrength": "Band Strength",
+    "band1": "Strength 1",
+    "band2": "Strength 2",
+    "duration": "Duration",
+    "distance": "Distance",
+    "saving": "Saving...",
+    "gpsWaiting": "Waiting for GPS signal...",
+    "gpsError": "GPS not available. Please allow location access.",
+    "selectDogFirst": "Please add a dog first."
+  },
+  "history": {
+    "title": "Training History",
+    "noTrainings": "No trainings recorded yet.",
+    "band": "Band",
+    "meters": "m",
+    "minutes": "min",
+    "seconds": "sec",
+    "date": "Date",
+    "details": "Details",
+    "delete": "Delete",
+    "confirmDelete": "Really delete this training?",
+    "route": "Route",
+    "routePoints": "Route Points"
+  },
+  "language": {
+    "de": "Deutsch",
+    "en": "English"
+  }
+}

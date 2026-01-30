@@ -1,0 +1,73 @@
+{
+  "app": {
+    "title": "biko Training"
+  },
+  "nav": {
+    "training": "Training",
+    "history": "Verlauf",
+    "profile": "Profil"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "logout": "Abmelden",
+    "noAccount": "Noch kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "error": "Anmeldung fehlgeschlagen. Bitte prüfe deine Daten."
+  },
+  "dog": {
+    "title": "Hundeprofil",
+    "name": "Name",
+    "breed": "Rasse",
+    "birthDate": "Geburtsdatum",
+    "save": "Speichern",
+    "saved": "Gespeichert!",
+    "noDog": "Kein Hund angelegt",
+    "addDog": "Hund hinzufügen"
+  },
+  "equipment": {
+    "title": "Ausrüstung",
+    "expanderSize": "Expander-Größe",
+    "cuffSize": "Manschetten-Größe",
+    "sizes": {
+      "S": "S",
+      "M": "M",
+      "L": "L",
+      "XL": "XL"
+    }
+  },
+  "training": {
+    "title": "Training",
+    "start": "Training starten",
+    "stop": "Training beenden",
+    "bandStrength": "Band-Stärke",
+    "band1": "Stärke 1",
+    "band2": "Stärke 2",
+    "duration": "Dauer",
+    "distance": "Distanz",
+    "saving": "Wird gespeichert...",
+    "gpsWaiting": "Warte auf GPS-Signal...",
+    "gpsError": "GPS nicht verfügbar. Bitte erlaube den Standortzugriff.",
+    "selectDogFirst": "Bitte lege zuerst einen Hund an."
+  },
+  "history": {
+    "title": "Trainingsverlauf",
+    "noTrainings": "Noch keine Trainings aufgezeichnet.",
+    "band": "Band",
+    "meters": "m",
+    "minutes": "Min",
+    "seconds": "Sek",
+    "date": "Datum",
+    "details": "Details",
+    "delete": "Löschen",
+    "confirmDelete": "Training wirklich löschen?",
+    "route": "Route",
+    "routePoints": "Routenpunkte"
+  },
+  "language": {
+    "de": "Deutsch",
+    "en": "English"
+  }
+}
