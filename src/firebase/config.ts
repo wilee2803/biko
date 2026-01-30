@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getAuth, Auth } from 'firebase/auth';
+import { getFirestore, Firestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,6 +11,15 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const firebaseConfigMissing = !firebaseConfig.apiKey || !firebaseConfig.projectId;
+
+// These will be undefined when config is missing.
+// The app shows a config-missing screen in that case, so components never access them.
+export let auth: Auth = undefined as unknown as Auth;
+export let db: Firestore = undefined as unknown as Firestore;
+
+if (!firebaseConfigMissing) {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+}
