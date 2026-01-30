@@ -1,8 +1,10 @@
 export interface Dog {
   id: string;
   userId: string;
+  ownerName: string;
   name: string;
   breed: string;
+  gender: 'male' | 'female';
   birthDate: string;
   expanderSize: string;
   cuffSize: string;
@@ -29,8 +31,10 @@ export interface Training {
 }
 
 export interface DogFormData {
+  ownerName: string;
   name: string;
   breed: string;
+  gender: 'male' | 'female';
   birthDate: string;
   expanderSize: string;
   cuffSize: string;

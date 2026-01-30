@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
-const SIZES = ['S', 'M', 'L', 'XL'];
+const EXPANDER_SIZES = ['1', '2', '3', '4', '5', '6', '7'];
+const CUFF_SIZES = ['1', '2', '3', '4'];
 
 interface Props {
   expanderSize: string;
@@ -22,7 +23,7 @@ export default function EquipmentSettings({ expanderSize, cuffSize, onChange }: 
           {t('equipment.expanderSize')}
         </label>
         <div className="flex gap-2">
-          {SIZES.map((size) => (
+          {EXPANDER_SIZES.map((size) => (
             <button
               key={size}
               type="button"
@@ -44,7 +45,7 @@ export default function EquipmentSettings({ expanderSize, cuffSize, onChange }: 
           {t('equipment.cuffSize')}
         </label>
         <div className="flex gap-2">
-          {SIZES.map((size) => (
+          {CUFF_SIZES.map((size) => (
             <button
               key={size}
               type="button"

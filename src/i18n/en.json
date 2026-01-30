@@ -19,8 +19,12 @@
   },
   "dog": {
     "title": "Dog Profile",
-    "name": "Name",
+    "ownerName": "Owner Name",
+    "name": "Dog Name",
     "breed": "Breed",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
     "birthDate": "Date of Birth",
     "save": "Save",
     "saved": "Saved!",

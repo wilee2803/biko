@@ -20,11 +20,13 @@ export default function DogProfile() {
   const { user } = useAuth();
   const [dog, setDog] = useState<Dog | null>(null);
   const [form, setForm] = useState<DogFormData>({
+    ownerName: '',
     name: '',
     breed: '',
+    gender: 'male',
     birthDate: '',
-    expanderSize: 'M',
-    cuffSize: 'M',
+    expanderSize: '1',
+    cuffSize: '1',
   });
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -39,17 +41,21 @@ export default function DogProfile() {
         const dogData: Dog = {
           id: docData.id,
           userId: d.userId,
+          ownerName: d.ownerName || '',
           name: d.name,
           breed: d.breed,
+          gender: d.gender || 'male',
           birthDate: d.birthDate,
-          expanderSize: d.expanderSize || 'M',
-          cuffSize: d.cuffSize || 'M',
+          expanderSize: d.expanderSize || '1',
+          cuffSize: d.cuffSize || '1',
           createdAt: d.createdAt?.toDate?.() || new Date(),
         };
         setDog(dogData);
         setForm({
+          ownerName: dogData.ownerName,
           name: dogData.name,
           breed: dogData.breed,
+          gender: dogData.gender,
           birthDate: dogData.birthDate,
           expanderSize: dogData.expanderSize,
           cuffSize: dogData.cuffSize,
@@ -92,6 +98,19 @@ export default function DogProfile() {
       <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
+            {t('dog.ownerName')}
+          </label>
+          <input
+            type="text"
+            value={form.ownerName}
+            onChange={(e) => setForm({ ...form, ownerName: e.target.value })}
+            required
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biko-500"
+          />
+        </div>
+
+        <div className="pt-2 border-t border-slate-100">
+          <label className="block text-sm font-medium text-slate-700 mb-1">
             {t('dog.name')}
           </label>
           <input
@@ -114,6 +133,36 @@ export default function DogProfile() {
             required
             className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-biko-500"
           />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            {t('dog.gender')}
+          </label>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={() => setForm({ ...form, gender: 'male' })}
+              className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
+                form.gender === 'male'
+                  ? 'bg-biko-600 text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              {t('dog.male')}
+            </button>
+            <button
+              type="button"
+              onClick={() => setForm({ ...form, gender: 'female' })}
+              className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
+                form.gender === 'female'
+                  ? 'bg-biko-600 text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              {t('dog.female')}
+            </button>
+          </div>
         </div>
 
         <div>

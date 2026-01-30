@@ -19,8 +19,12 @@
   },
   "dog": {
     "title": "Hundeprofil",
-    "name": "Name",
+    "ownerName": "Name des Besitzers",
+    "name": "Name des Hundes",
     "breed": "Rasse",
+    "gender": "Geschlecht",
+    "male": "Rüde",
+    "female": "Hündin",
     "birthDate": "Geburtsdatum",
     "save": "Speichern",
     "saved": "Gespeichert!",

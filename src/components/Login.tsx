@@ -21,8 +21,10 @@ export default function Login() {
       } else {
         await login(email, password);
       }
-    } catch {
-      setError(t('auth.error'));
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('Auth error:', msg);
+      setError(msg);
     } finally {
       setLoading(false);
     }
