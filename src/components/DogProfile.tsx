@@ -29,6 +29,7 @@ export default function DogProfile() {
     cuffSize: '1',
   });
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -62,6 +63,10 @@ export default function DogProfile() {
         });
       }
       setLoading(false);
+    }, (err) => {
+      console.error('Firestore error:', err.message);
+      setError(err.message);
+      setLoading(false);
     });
     return unsubscribe;
   }, [user]);
@@ -69,18 +74,25 @@ export default function DogProfile() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!user) return;
+    setError('');
 
-    if (dog) {
-      await updateDoc(doc(db, 'dogs', dog.id), { ...form });
-    } else {
-      await addDoc(collection(db, 'dogs'), {
-        ...form,
-        userId: user.uid,
-        createdAt: Timestamp.now(),
-      });
+    try {
+      if (dog) {
+        await updateDoc(doc(db, 'dogs', dog.id), { ...form });
+      } else {
+        await addDoc(collection(db, 'dogs'), {
+          ...form,
+          userId: user.uid,
+          createdAt: Timestamp.now(),
+        });
+      }
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('Save error:', msg);
+      setError(msg);
     }
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
   };
 
   if (loading) {
@@ -190,6 +202,10 @@ export default function DogProfile() {
         >
           {t('dog.save')}
         </button>
+
+        {error && (
+          <p className="text-center text-red-500 text-sm">{error}</p>
+        )}
 
         {saved && (
           <p className="text-center text-green-600 text-sm font-medium">{t('dog.saved')}</p>
