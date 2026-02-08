@@ -4,12 +4,13 @@ import { useAuth } from '../contexts/AuthContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface Props {
-  activeTab: 'training' | 'history' | 'profile';
+  activeTab: 'training' | 'history' | 'profile' | 'admin';
   onTabChange: (tab: 'training' | 'history' | 'profile') => void;
   children: ReactNode;
+  isAdmin?: boolean;
 }
 
-export default function Layout({ activeTab, onTabChange, children }: Props) {
+export default function Layout({ activeTab, onTabChange, children, isAdmin }: Props) {
   const { t } = useTranslation();
   const { logout } = useAuth();
 
@@ -61,29 +62,31 @@ export default function Layout({ activeTab, onTabChange, children }: Props) {
       </header>
 
       {/* Content */}
-      <main className="flex-1 px-4 py-6 pb-24 max-w-lg mx-auto w-full">
+      <main className={`flex-1 px-4 py-6 max-w-lg mx-auto w-full ${isAdmin ? '' : 'pb-24'}`}>
         {children}
       </main>
 
-      {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 safe-area-bottom">
-        <div className="flex max-w-lg mx-auto">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => onTabChange(tab.id)}
-              className={`flex-1 flex flex-col items-center py-2 pt-3 text-xs font-medium transition-colors ${
-                activeTab === tab.id
-                  ? 'text-biko-600'
-                  : 'text-slate-400 hover:text-slate-600'
-              }`}
-            >
-              {tab.icon}
-              <span className="mt-0.5">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-      </nav>
+      {/* Bottom Navigation - hidden for admin */}
+      {!isAdmin && (
+        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 safe-area-bottom">
+          <div className="flex max-w-lg mx-auto">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => onTabChange(tab.id)}
+                className={`flex-1 flex flex-col items-center py-2 pt-3 text-xs font-medium transition-colors ${
+                  activeTab === tab.id
+                    ? 'text-biko-600'
+                    : 'text-slate-400 hover:text-slate-600'
+                }`}
+              >
+                {tab.icon}
+                <span className="mt-0.5">{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </nav>
+      )}
     </div>
   );
 }

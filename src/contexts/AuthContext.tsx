@@ -8,10 +8,13 @@ import {
 } from 'firebase/auth';
 import { auth, firebaseConfigMissing } from '../firebase/config';
 
+const ADMIN_EMAIL = 'info@mydogs.at';
+
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   configMissing: boolean;
+  isAdmin: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -47,8 +50,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await signOut(auth);
   };
 
+  const isAdmin = user?.email === ADMIN_EMAIL;
+
   return (
-    <AuthContext.Provider value={{ user, loading, configMissing: firebaseConfigMissing, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, configMissing: firebaseConfigMissing, isAdmin, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

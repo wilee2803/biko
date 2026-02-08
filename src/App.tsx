@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import TrainingSession from './components/TrainingSession';
 import TrainingHistory from './components/TrainingHistory';
 import ProfilePage from './components/ProfilePage';
+import AdminPage from './components/AdminPage';
 
 function ConfigMissing() {
   return (
@@ -35,8 +36,8 @@ VITE_FIREBASE_APP_ID=...`}
 }
 
 export default function App() {
-  const { user, loading, configMissing } = useAuth();
-  const [activeTab, setActiveTab] = useState<'training' | 'history' | 'profile'>('training');
+  const { user, loading, configMissing, isAdmin } = useAuth();
+  const [activeTab, setActiveTab] = useState<'training' | 'history' | 'profile' | 'admin'>('training');
 
   if (configMissing) {
     return <ConfigMissing />;
@@ -52,6 +53,14 @@ export default function App() {
 
   if (!user) {
     return <Login />;
+  }
+
+  if (isAdmin) {
+    return (
+      <Layout activeTab="admin" onTabChange={() => {}} isAdmin>
+        <AdminPage />
+      </Layout>
+    );
   }
 
   return (

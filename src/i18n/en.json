@@ -103,5 +103,12 @@
   "language": {
     "de": "Deutsch",
     "en": "English"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "users": "Users",
+    "dogs": "Dogs",
+    "trainings": "Trainings",
+    "owner": "Owner"
   }
 }
