@@ -4,11 +4,12 @@ import { useState } from 'react';
 
 interface Props {
   training: Training;
+  dogName?: string;
   onBack: () => void;
   onDelete: () => Promise<void>;
 }
 
-export default function TrainingDetail({ training, onBack, onDelete }: Props) {
+export default function TrainingDetail({ training, dogName, onBack, onDelete }: Props) {
   const { t, i18n } = useTranslation();
   const [confirming, setConfirming] = useState(false);
 
@@ -43,6 +44,9 @@ export default function TrainingDetail({ training, onBack, onDelete }: Props) {
       </button>
 
       <div className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
+        {dogName && (
+          <p className="text-sm font-medium text-biko-600">{dogName}</p>
+        )}
         <p className="text-sm text-slate-500">{date}</p>
         <p className="text-sm text-slate-500">{startTime} – {endTime}</p>
 
