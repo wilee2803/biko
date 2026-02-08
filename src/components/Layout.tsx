@@ -48,7 +48,7 @@ export default function Layout({ activeTab, onTabChange, children }: Props) {
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between">
-        <h1 className="text-lg font-bold text-biko-800">biko</h1>
+        <img src="/biko-logo.png" alt="biko" className="h-8" />
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
           <button

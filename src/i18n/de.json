@@ -4,7 +4,7 @@
   },
   "nav": {
     "training": "Training",
-    "history": "Verlauf",
+    "history": "Trainingsverlauf",
     "profile": "Profil"
   },
   "auth": {
@@ -23,7 +23,21 @@
   },
   "owner": {
     "title": "Besitzer",
-    "name": "Dein Name"
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "phone": "Mobiltelefon",
+    "address": "Adresse",
+    "postalCode": "PLZ",
+    "city": "Ort",
+    "country": "Land"
+  },
+  "shop": {
+    "title": "Shop",
+    "spareParts": "Ersatzteile kaufen"
+  },
+  "contact": {
+    "title": "Kontakt"
   },
   "dog": {
     "title": "Hundeprofil",
@@ -73,6 +87,7 @@
   "history": {
     "title": "Trainingsverlauf",
     "noTrainings": "Noch keine Trainings aufgezeichnet.",
+    "error": "Fehler beim Laden der Trainings.",
     "band": "Band",
     "meters": "m",
     "minutes": "Min",

@@ -34,8 +34,8 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-biko-800">biko</h1>
-          <p className="text-slate-500 mt-1">{t('app.title')}</p>
+          <img src="/biko-logo.png" alt="biko" className="h-16 mx-auto mb-2" />
+          <p className="text-slate-500">{t('app.title')}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm p-6 space-y-4">

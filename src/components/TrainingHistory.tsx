@@ -6,13 +6,25 @@ import { Training } from '../types';
 
 export default function TrainingHistory() {
   const { t, i18n } = useTranslation();
-  const { trainings, loading, deleteTraining } = useTrainings();
+  const { trainings, loading, error, deleteTraining } = useTrainings();
   const [selected, setSelected] = useState<Training | null>(null);
 
   if (loading) {
     return (
       <div className="flex justify-center py-12">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-biko-600" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-4">
+        <h2 className="text-xl font-bold text-slate-800">{t('history.title')}</h2>
+        <div className="bg-white rounded-2xl shadow-sm p-6 text-center">
+          <p className="text-red-500 text-sm">{t('history.error')}</p>
+          <p className="text-slate-400 text-xs mt-2">{error}</p>
+        </div>
       </div>
     );
   }

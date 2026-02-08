@@ -1,7 +1,14 @@
 export interface UserProfile {
   id: string;
   userId: string;
-  ownerName: string;
+  firstName: string;
+  email: string;
+  lastName?: string;
+  address?: string;
+  postalCode?: string;
+  city?: string;
+  country?: string;
+  phone?: string;
   createdAt: Date;
 }
 

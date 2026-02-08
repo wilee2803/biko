@@ -18,6 +18,7 @@ export function useTrainings(dogId?: string) {
   const { user } = useAuth();
   const [trainings, setTrainings] = useState<Training[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) {
@@ -35,25 +36,34 @@ export function useTrainings(dogId?: string) {
     }
 
     const q = query(collection(db, 'trainings'), ...constraints);
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const data = snapshot.docs.map((doc) => {
-        const d = doc.data();
-        return {
-          id: doc.id,
-          dogId: d.dogId,
-          userId: d.userId,
-          bandStrength: d.bandStrength,
-          startTime: d.startTime?.toDate?.() || new Date(d.startTime),
-          endTime: d.endTime?.toDate?.() || new Date(d.endTime),
-          duration: d.duration,
-          distance: d.distance,
-          route: d.route || [],
-          createdAt: d.createdAt?.toDate?.() || new Date(d.createdAt),
-        } as Training;
-      });
-      setTrainings(data);
-      setLoading(false);
-    });
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        const data = snapshot.docs.map((doc) => {
+          const d = doc.data();
+          return {
+            id: doc.id,
+            dogId: d.dogId,
+            userId: d.userId,
+            bandStrength: d.bandStrength,
+            startTime: d.startTime?.toDate?.() || new Date(d.startTime),
+            endTime: d.endTime?.toDate?.() || new Date(d.endTime),
+            duration: d.duration,
+            distance: d.distance,
+            route: d.route || [],
+            createdAt: d.createdAt?.toDate?.() || new Date(d.createdAt),
+          } as Training;
+        });
+        setTrainings(data);
+        setLoading(false);
+        setError(null);
+      },
+      (err) => {
+        console.error('Trainings query error:', err);
+        setError(err.message);
+        setLoading(false);
+      }
+    );
 
     return unsubscribe;
   }, [user, dogId]);
@@ -81,5 +91,5 @@ export function useTrainings(dogId?: string) {
     await deleteDoc(doc(db, 'trainings', trainingId));
   };
 
-  return { trainings, loading, saveTraining, deleteTraining };
+  return { trainings, loading, error, saveTraining, deleteTraining };
 }
