@@ -4,7 +4,7 @@ import Login from './components/Login';
 import Layout from './components/Layout';
 import TrainingSession from './components/TrainingSession';
 import TrainingHistory from './components/TrainingHistory';
-import DogProfile from './components/DogProfile';
+import ProfilePage from './components/ProfilePage';
 
 function ConfigMissing() {
   return (
@@ -58,7 +58,7 @@ export default function App() {
     <Layout activeTab={activeTab} onTabChange={setActiveTab}>
       {activeTab === 'training' && <TrainingSession />}
       {activeTab === 'history' && <TrainingHistory />}
-      {activeTab === 'profile' && <DogProfile />}
+      {activeTab === 'profile' && <ProfilePage />}
     </Layout>
   );
 }

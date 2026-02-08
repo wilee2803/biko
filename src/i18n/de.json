@@ -17,9 +17,17 @@
     "hasAccount": "Bereits ein Konto?",
     "error": "Anmeldung fehlgeschlagen. Bitte prüfe deine Daten."
   },
+  "common": {
+    "cancel": "Abbrechen",
+    "saving": "Wird gespeichert..."
+  },
+  "owner": {
+    "title": "Besitzer",
+    "name": "Dein Name"
+  },
   "dog": {
     "title": "Hundeprofil",
-    "ownerName": "Name des Besitzers",
+    "dogs": "Meine Hunde",
     "name": "Name des Hundes",
     "breed": "Rasse",
     "gender": "Geschlecht",
@@ -29,7 +37,11 @@
     "save": "Speichern",
     "saved": "Gespeichert!",
     "noDog": "Kein Hund angelegt",
-    "addDog": "Hund hinzufügen"
+    "noDogs": "Noch keine Hunde angelegt.",
+    "addDog": "Hund hinzufügen",
+    "editDog": "Bearbeiten",
+    "deleteDog": "Löschen",
+    "confirmDelete": "Hund wirklich löschen? Alle Trainingsdaten bleiben erhalten."
   },
   "equipment": {
     "title": "Ausrüstung",
@@ -54,7 +66,9 @@
     "saving": "Wird gespeichert...",
     "gpsWaiting": "Warte auf GPS-Signal...",
     "gpsError": "GPS nicht verfügbar. Bitte erlaube den Standortzugriff.",
-    "selectDogFirst": "Bitte lege zuerst einen Hund an."
+    "selectDogFirst": "Bitte lege zuerst einen Hund an.",
+    "selectDog": "Hund auswählen",
+    "trainingWith": "Training mit"
   },
   "history": {
     "title": "Trainingsverlauf",

@@ -1,7 +1,13 @@
-export interface Dog {
+export interface UserProfile {
   id: string;
   userId: string;
   ownerName: string;
+  createdAt: Date;
+}
+
+export interface Dog {
+  id: string;
+  userId: string;
   name: string;
   breed: string;
   gender: 'male' | 'female';
@@ -31,7 +37,6 @@ export interface Training {
 }
 
 export interface DogFormData {
-  ownerName: string;
   name: string;
   breed: string;
   gender: 'male' | 'female';

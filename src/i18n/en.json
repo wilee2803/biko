@@ -17,9 +17,17 @@
     "hasAccount": "Already have an account?",
     "error": "Login failed. Please check your credentials."
   },
+  "common": {
+    "cancel": "Cancel",
+    "saving": "Saving..."
+  },
+  "owner": {
+    "title": "Owner",
+    "name": "Your Name"
+  },
   "dog": {
     "title": "Dog Profile",
-    "ownerName": "Owner Name",
+    "dogs": "My Dogs",
     "name": "Dog Name",
     "breed": "Breed",
     "gender": "Gender",
@@ -29,7 +37,11 @@
     "save": "Save",
     "saved": "Saved!",
     "noDog": "No dog added",
-    "addDog": "Add Dog"
+    "noDogs": "No dogs added yet.",
+    "addDog": "Add Dog",
+    "editDog": "Edit",
+    "deleteDog": "Delete",
+    "confirmDelete": "Really delete this dog? All training data will be preserved."
   },
   "equipment": {
     "title": "Equipment",
@@ -54,7 +66,9 @@
     "saving": "Saving...",
     "gpsWaiting": "Waiting for GPS signal...",
     "gpsError": "GPS not available. Please allow location access.",
-    "selectDogFirst": "Please add a dog first."
+    "selectDogFirst": "Please add a dog first.",
+    "selectDog": "Select Dog",
+    "trainingWith": "Training with"
   },
   "history": {
     "title": "Training History",
