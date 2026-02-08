@@ -15,7 +15,13 @@
     "logout": "Abmelden",
     "noAccount": "Noch kein Konto?",
     "hasAccount": "Bereits ein Konto?",
-    "error": "Anmeldung fehlgeschlagen. Bitte prüfe deine Daten."
+    "error": "Anmeldung fehlgeschlagen. Bitte prüfe deine Daten.",
+    "forgotPassword": "Passwort vergessen?",
+    "resetPassword": "Passwort zurücksetzen",
+    "resetEmailSent": "E-Mail zum Zurücksetzen wurde gesendet. Bitte prüfe dein Postfach.",
+    "backToLogin": "Zurück zum Login",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen"
   },
   "common": {
     "cancel": "Abbrechen",

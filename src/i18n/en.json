@@ -15,7 +15,13 @@
     "logout": "Logout",
     "noAccount": "No account yet?",
     "hasAccount": "Already have an account?",
-    "error": "Login failed. Please check your credentials."
+    "error": "Login failed. Please check your credentials.",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset Password",
+    "resetEmailSent": "Password reset email sent. Please check your inbox.",
+    "backToLogin": "Back to Login",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
   "common": {
     "cancel": "Cancel",

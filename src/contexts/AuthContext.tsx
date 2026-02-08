@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 import { auth, firebaseConfigMissing } from '../firebase/config';
 
@@ -18,6 +19,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  resetPassword: (email: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -50,10 +52,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await signOut(auth);
   };
 
+  const resetPassword = async (email: string) => {
+    if (!auth) return;
+    await sendPasswordResetEmail(auth, email);
+  };
+
   const isAdmin = user?.email === ADMIN_EMAIL;
 
   return (
-    <AuthContext.Provider value={{ user, loading, configMissing: firebaseConfigMissing, isAdmin, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, configMissing: firebaseConfigMissing, isAdmin, login, register, logout, resetPassword }}>
       {children}
     </AuthContext.Provider>
   );
