@@ -54,7 +54,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const resetPassword = async (email: string) => {
     if (!auth) return;
-    await sendPasswordResetEmail(auth, email);
+    await sendPasswordResetEmail(auth, email, {
+      url: window.location.origin,
+      handleCodeInApp: false,
+    });
   };
 
   const isAdmin = user?.email === ADMIN_EMAIL;

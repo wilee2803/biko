@@ -18,7 +18,7 @@
     "error": "Login failed. Please check your credentials.",
     "forgotPassword": "Forgot password?",
     "resetPassword": "Reset Password",
-    "resetEmailSent": "Password reset email sent. Please check your inbox.",
+    "resetEmailSent": "Password reset email sent. Please check your inbox and spam folder.",
     "backToLogin": "Back to Login",
     "showPassword": "Show password",
     "hidePassword": "Hide password"

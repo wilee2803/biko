@@ -18,7 +18,7 @@
     "error": "Anmeldung fehlgeschlagen. Bitte prüfe deine Daten.",
     "forgotPassword": "Passwort vergessen?",
     "resetPassword": "Passwort zurücksetzen",
-    "resetEmailSent": "E-Mail zum Zurücksetzen wurde gesendet. Bitte prüfe dein Postfach.",
+    "resetEmailSent": "E-Mail zum Zurücksetzen wurde gesendet. Bitte prüfe dein Postfach und den Spam-Ordner.",
     "backToLogin": "Zurück zum Login",
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort verbergen"
